@@ -18,7 +18,7 @@ Install DeviseInvitable gem, it will also install dependencies (such as devise a
 Add DeviseInvitable to your Gemfile (and Devise if you weren't using them):
 
   gem 'devise',           '~> 3.5.2'
-  gem 'devise_invitable', '~> 1.5.2'
+  gem 'devise_invitable', '~> 1.6.0'
 
 === Automatic installation
 
@@ -283,6 +283,11 @@ You can also set <tt>invited_by</tt> when using the <tt>invite!</tt> class metho
 
   User.invite!({:email => "new_user@example.com"}, current_user) # current_user will be set as invited_by
 
+=== Find by invitation token
+
+To find by invitation token use the <tt>find_by_invitation_token</tt> class method. 
+
+  user = User.find_by_invitation_token(params[:invitation_token], true)
 
 
 === Accept an invitation
@@ -396,6 +401,8 @@ The DeviseInvitable mailer uses the same pattern as Devise to create mail subjec
           user_subject: 'You got a user invitation!'
 
 Take a look at the generated locale file (in <tt>config/locales/devise_invitable.en.yml</tt>) to check all available messages.
+
+Translations are available at wiki[https://github.com/scambra/devise_invitable/wiki/I18n].
 
 == Other ORMs
 
